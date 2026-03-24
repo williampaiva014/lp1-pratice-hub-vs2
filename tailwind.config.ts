@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        display: ["Kanit", "system-ui", "sans-serif"],
+        body: ["Kanit", "system-ui", "sans-serif"],
+        sans: ["Kanit", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
