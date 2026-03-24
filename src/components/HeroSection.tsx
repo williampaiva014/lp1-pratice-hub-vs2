@@ -59,14 +59,13 @@ const HeroSection = () => {
         >
           <a
             href="#benefits"
-            className="group relative px-8 py-4 rounded-full bg-primary text-primary-foreground font-display font-semibold text-lg glow-gold hover:scale-105 transition-all duration-300"
+            className="group relative px-8 py-4 rounded-full btn-gold-gradient font-display font-bold text-lg"
           >
             QUERO SABER MAIS
-            <div className="absolute inset-0 rounded-full bg-primary/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
           </a>
           <a
             href="#final"
-            className="px-8 py-4 rounded-full border border-border text-foreground font-display font-medium text-lg hover:border-primary/50 hover:text-primary transition-all duration-300"
+            className="px-8 py-4 rounded-full border border-gold/30 text-foreground font-display font-medium text-lg hover:border-gold/60 hover:text-primary transition-all duration-300"
           >
             QUERO CRESCER NA REDE
           </a>

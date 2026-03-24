@@ -67,7 +67,7 @@ const BenefitsSection = () => {
           </p>
           <a
             href="#final"
-            className="inline-block px-8 py-4 rounded-full bg-primary text-primary-foreground font-display font-semibold glow-gold-sm hover:scale-105 transition-transform duration-300"
+            className="inline-block px-8 py-4 rounded-full btn-gold-gradient font-display text-lg"
           >
             QUERO FAZER PARTE
           </a>

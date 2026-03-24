@@ -56,7 +56,7 @@ const FinalCTASection = () => {
 
           <a
             href="#"
-            className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-primary text-primary-foreground font-display font-bold text-lg glow-gold hover:scale-105 transition-all duration-300"
+            className="group inline-flex items-center gap-3 px-10 py-5 rounded-full btn-gold-gradient font-display text-lg"
           >
             QUERO ENTRAR E ACESSAR AS OPORTUNIDADES
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />

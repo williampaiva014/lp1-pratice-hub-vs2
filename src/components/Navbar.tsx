@@ -48,7 +48,7 @@ const Navbar = () => {
           ))}
           <a
             href="#final"
-            className="px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground glow-gold-sm hover:scale-105 transition-transform duration-300"
+            className="px-5 py-2 text-sm font-bold rounded-full btn-gold-gradient"
           >
             Acessar Agora
           </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
               <a
                 href="#final"
                 onClick={() => setMobileOpen(false)}
-                className="px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground text-center"
+                className="px-5 py-2 text-sm font-bold rounded-full btn-gold-gradient text-center"
               >
                 Acessar Agora
               </a>

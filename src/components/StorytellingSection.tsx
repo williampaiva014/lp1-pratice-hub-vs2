@@ -116,7 +116,7 @@ const ChapterBlock = ({
           </p>
           <a
             href="#final"
-            className="inline-block px-6 py-3 rounded-full border border-primary/30 text-primary font-medium text-sm hover:bg-primary/10 transition-all duration-300"
+            className="inline-block px-6 py-3 rounded-full btn-gold-gradient text-sm"
           >
             {chapter.cta}
           </a>
