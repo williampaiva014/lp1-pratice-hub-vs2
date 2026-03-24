@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import pauloRobson from "@/assets/paulo_robson.png";
 
 const chapters = [
   {
@@ -40,6 +41,19 @@ const StorytellingSection = () => {
 
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <img
+              src={pauloRobson}
+              alt="Paulo Robson"
+              className="mx-auto w-64 sm:w-80 md:w-96 drop-shadow-2xl"
+            />
+          </motion.div>
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
             Minha história
           </p>

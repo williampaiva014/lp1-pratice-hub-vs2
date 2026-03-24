@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoPrata from "@/assets/logo-prata.png";
 
 const navItems = [
   { label: "Início", href: "#hero" },
@@ -30,9 +31,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="font-display text-xl font-bold tracking-tight">
-          <span className="text-gradient-gold">Prátice</span>
-          <span className="text-foreground"> Hub</span>
+        <a href="#hero" className="flex items-center">
+          <img src={logoPrata} alt="Prátice Hub" className="h-8" />
         </a>
 
         {/* Desktop */}
