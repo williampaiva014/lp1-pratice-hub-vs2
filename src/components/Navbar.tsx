@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Star, BookOpen, BarChart3, LogIn, Instagram, Linkedin, Phone } from "lucide-react";
 import logoPrata from "@/assets/logo pratice3.png";
 
 const navItems = [
-  { label: "Início", href: "#hero" },
-  { label: "Benefícios", href: "#benefits" },
-  { label: "História", href: "#story" },
-  { label: "Resultados", href: "#proof" },
-  { label: "Entrar", href: "#final" },
+  { label: "Início", href: "#hero", icon: Home },
+  { label: "Benefícios", href: "#benefits", icon: Star },
+  { label: "História", href: "#story", icon: BookOpen },
+  { label: "Resultados", href: "#proof", icon: BarChart3 },
+  { label: "Entrar", href: "#final", icon: LogIn },
 ];
 
 const Navbar = () => {
@@ -90,33 +90,74 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - Drawer Fullscreen */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass overflow-hidden"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-2xl md:hidden flex flex-col"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-6 py-6 border-b border-white/5">
+              <img src={logoPrata} alt="Prátice Hub" className="h-10" />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-foreground"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex-1 px-8 py-12 flex flex-col gap-6 overflow-y-auto">
+              {navItems.map((item, i) => (
+                <motion.a
                   key={item.href}
                   href={item.href}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * i }}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-5 text-2xl font-display font-medium text-muted-foreground hover:text-foreground transition-all group"
                 >
-                  {item.label}
-                </a>
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-gold/10 group-hover:text-primary transition-colors">
+                    <item.icon size={20} />
+                  </div>
+                  <span>{item.label}</span>
+                </motion.a>
               ))}
-              <a
+              
+              <motion.a
                 href="#final"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
                 onClick={() => setMobileOpen(false)}
-                className="px-5 py-2 text-sm font-bold rounded-full btn-gold-gradient text-center"
+                className="mt-4 px-8 py-5 rounded-2xl btn-gold-gradient text-center font-bold text-lg shadow-[0_10px_30px_rgba(212,175,55,0.2)]"
               >
-                Acessar Agora
-              </a>
+                ACESSAR AGORA
+              </motion.a>
+            </div>
+
+            {/* Mini Footer */}
+            <div className="p-8 border-t border-white/5 bg-white/[0.02]">
+              <div className="flex items-center justify-center gap-6 mb-6">
+                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
+                  <Instagram size={20} />
+                </a>
+                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
+                  <Linkedin size={20} />
+                </a>
+                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
+                  <Phone size={20} />
+                </a>
+              </div>
+              <p className="text-center text-xs text-muted-foreground font-medium tracking-widest uppercase opacity-60">
+                Conectando a elite da construção
+              </p>
             </div>
           </motion.div>
         )}
