@@ -15,7 +15,6 @@ const Index = () => {
   return (
     <div className="relative min-h-screen bg-background">
       <GlowOrbs />
-      <Navbar />
       <HeroSection />
       <LogoSmokeSection />
       <ProblemSection />
@@ -25,6 +24,7 @@ const Index = () => {
       <ProofSection />
       <FinalCTASection />
       <Footer />
+      <Navbar />
       <CookieConsent />
     </div>
   );
