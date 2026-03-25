@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoPrata from "@/assets/logo-prata.png";
+import logoPrata from "@/assets/logo pratice3.png";
 
 const navItems = [
   { label: "Início", href: "#hero" },
@@ -14,11 +14,38 @@ const navItems = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDarkSection, setIsDarkSection] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // Observer para verificar se a scroll-section está visível
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Se 10% ou mais da seção estiver visível, ela está na tela
+          if (entry.isIntersecting) {
+            setIsDarkSection(true);
+          } else {
+            setIsDarkSection(false);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    const scrollSection = document.getElementById("scroll-section");
+    if (scrollSection) {
+      observer.observe(scrollSection);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (scrollSection) {
+        observer.unobserve(scrollSection);
+      }
+    };
   }, []);
 
   return (
@@ -27,12 +54,12 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "py-5 bg-transparent"
+        isDarkSection ? "bg-[#050505] py-3" : scrolled ? "glass py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#hero" className="flex items-center">
-          <img src={logoPrata} alt="Prátice Hub" className="h-8" />
+          <img src={logoPrata} alt="Prátice Hub" className="h-10 md:h-12" />
         </a>
 
         {/* Desktop */}

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import pauloRobson from "@/assets/paulo_robson.png";
+import pauloRobson from "@/assets/paulo-robson2.png";
 
 const chapters = [
   {
@@ -20,7 +20,7 @@ const chapters = [
   {
     tag: "O JOGO REAL",
     title: "Os que mais crescem não são os melhores tecnicamente.",
-    text: "São os mais bem posicionados. Os que estão nos ambientes certos. Os que recebem indicações sem pedir. Os que são lembrados primeiro.",
+    text: "E quem sai na frente fica melhor posicionado e com a Prátice Hub você tem:",
     accent: "Posicionamento > capacidade.",
     cta: "QUERO ACELERAR",
   },
@@ -35,10 +35,7 @@ const chapters = [
 
 const StorytellingSection = () => {
   return (
-    <section id="story" className="relative py-32">
-      {/* Vertical line */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent hidden lg:block" />
-
+    <section id="story" className="relative pt-8 pb-32 mt-[-40px]">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-20">
           <motion.div
@@ -51,7 +48,7 @@ const StorytellingSection = () => {
             <img
               src={pauloRobson}
               alt="Paulo Robson"
-              className="mx-auto w-64 sm:w-80 md:w-96 drop-shadow-2xl"
+              className="mx-auto w-[90%] md:w-[800px] drop-shadow-[0_20px_50px_rgba(255,190,40,0.15)] scale-110 relative z-20"
             />
           </motion.div>
           <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
@@ -63,7 +60,10 @@ const StorytellingSection = () => {
           </h2>
         </div>
 
-        <div className="space-y-24 lg:space-y-32">
+        <div className="space-y-24 lg:space-y-32 relative">
+          {/* Vertical line starting after headline */}
+          <div className="absolute left-[calc(50%-1px)] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-border to-transparent hidden lg:block" />
+          
           {chapters.map((ch, i) => (
             <ChapterBlock key={ch.tag} chapter={ch} index={i} />
           ))}
@@ -91,7 +91,7 @@ const ChapterBlock = ({
         initial={{ scale: 0 }}
         animate={inView ? { scale: 1 } : {}}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="hidden lg:block absolute left-1/2 top-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-gold-sm z-10"
+        className="hidden lg:block absolute left-[calc(50%-8px)] top-8 w-4 h-4 rounded-full bg-primary glow-gold-sm z-10"
       />
 
       <div className={`lg:grid lg:grid-cols-2 lg:gap-16 items-start ${isEven ? "" : "direction-rtl"}`}>

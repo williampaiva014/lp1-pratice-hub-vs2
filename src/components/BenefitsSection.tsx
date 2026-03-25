@@ -22,30 +22,21 @@ const BenefitsSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <p className="text-primary text-sm font-medium tracking-widest uppercase mb-4">
-            Por que funciona
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-            O mercado está aquecido.<br />
-            <span className="text-muted-foreground font-light">
-              Mas quem cresce mais não é quem trabalha mais.
-            </span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+            E quem sai na frente fica <span className="text-gradient-gold">melhor posicionado</span> e com a <span className="text-gradient-gold">Prátice Hub</span> você tem:
           </h2>
-          <p className="font-display text-xl sm:text-2xl text-gradient-gold font-semibold">
-            É quem está mais bem posicionado.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {benefits.map((b, i) => (
             <motion.div
               key={b.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 * i }}
-              className="group p-6 rounded-2xl glass hover:glass-gold transition-all duration-500 hover:-translate-y-1"
+              className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] group p-6 rounded-2xl glass hover:glass-gold transition-all duration-500 hover:-translate-y-1 text-left"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                 <b.icon size={22} className="text-primary" />
