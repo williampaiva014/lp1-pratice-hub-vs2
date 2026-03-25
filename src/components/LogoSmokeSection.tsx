@@ -31,16 +31,16 @@ const LogoSmokeSection = () => {
         transition={{ duration: 1.5 }}
         className="relative flex items-center justify-center w-full max-w-[1400px] px-6 cursor-crosshair h-full"
       >
-        {/* Base Logo: Opacidade muito baixa */}
+        {/* Base Logo: 100% no mobile, opacidade baixa no desktop para o efeito de mouse */}
         <img 
           src={logoPrata} 
           alt="Prátice Hub Base" 
-          className="w-[70vw] max-w-[500px] object-contain opacity-[0.08]"
+          className="w-[70vw] max-w-[500px] object-contain opacity-100 md:opacity-[0.08] transition-opacity duration-1000"
         />
 
-        {/* Revelação Spotlight Logo: Aparece a 100% apenas onde o mouse está */}
+        {/* Revelação Spotlight Logo: Apenas para Desktop */}
         <div 
-          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-500 ease-out"
+          className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none transition-opacity duration-500 ease-out"
           style={{
             opacity: isHovering ? 1 : 0,
             WebkitMaskImage: `radial-gradient(350px circle at ${mousePosition.x}px ${mousePosition.y}px, black 5%, transparent 70%)`,
