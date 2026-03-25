@@ -45,15 +45,24 @@ const Navbar = () => {
       if (scrollSection) {
         observer.unobserve(scrollSection);
       }
+      document.body.style.overflow = "unset";
     };
   }, []);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [mobileOpen]);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${
         isDarkSection ? "bg-[#050505] py-3" : scrolled ? "glass py-3" : "py-5 bg-transparent"
       }`}
     >
@@ -98,7 +107,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-2xl md:hidden flex flex-col"
+            className="fixed inset-0 z-[1000] bg-[#030303]/98 backdrop-blur-3xl md:hidden flex flex-col"
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between px-6 py-6 border-b border-white/5">
