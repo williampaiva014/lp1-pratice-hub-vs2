@@ -17,7 +17,7 @@ const LogoSmokeSection = () => {
   };
 
   return (
-    <section className="relative min-h-[50vh] md:min-h-[80vh] bg-background flex flex-col items-center justify-center overflow-hidden pt-4 pb-32">
+    <section className="relative min-h-[50vh] md:min-h-[80vh] bg-background flex flex-col items-center justify-center overflow-hidden pt-4 pb-16 md:pb-32">
       {/* Radial glow consistent with Hero section */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.04] blur-[100px] pointer-events-none" />
       <motion.div 
@@ -63,13 +63,13 @@ const LogoSmokeSection = () => {
         transition={{ duration: 1, delay: 0.8 }}
         className="container mx-auto px-6 text-center max-w-4xl relative z-10 mt-16"
       >
-        <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+        <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[1.2] md:leading-tight mb-6">
           Isso que vou te apresentar,<br />
           não é um grupo. Não é um curso.<br />
           <span className="text-gradient-gold">É uma infraestrutura de negócios.</span>
         </h2>
         
-        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto font-light">
+        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 max-w-3xl mx-auto font-light lg:leading-[1.8]">
           Um ecossistema completo dentro de um app na palma da sua mão, criado do zero para 
           engenheiros, arquitetos, construtores, corretores, corbans e profissionais da 
           construção que decidiram ir além do crescimento limitado de quem tenta sozinho.

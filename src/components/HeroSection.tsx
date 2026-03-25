@@ -3,7 +3,7 @@ import { ArrowDown, Zap, TrendingDown, UserX, Globe } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-6">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 md:pt-32 md:pb-6">
       {/* Radial glow behind text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.06] blur-[100px]" />
 
@@ -33,11 +33,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="font-display text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light mb-4"
+          className="font-display text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light mb-4 leading-relaxed"
         >
           Quem joga isolado só sobrevive.
           <br />
-          <span className="text-foreground font-medium">Quem se conecta, domina.</span>
+          <span className="text-foreground font-medium leading-tight">Quem se conecta, domina.</span>
         </motion.p>
 
         <motion.div

@@ -26,7 +26,7 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="relative py-24 bg-background overflow-hidden border-b border-white/5">
+    <section className="relative py-12 md:py-24 bg-background overflow-hidden border-b border-white/5">
       <div className="container mx-auto px-6 max-w-6xl text-center">
         
         <motion.div
@@ -39,7 +39,7 @@ const ProblemSection = () => {
           <span className="inline-block px-4 py-1.5 rounded-lg border border-white/10 text-[10px] tracking-widest uppercase text-muted-foreground mb-6">
             A Sua Realidade
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+          <h2 className="font-display text-3xl md:text-5xl font-bold leading-[1.2] md:leading-tight max-w-4xl mx-auto">
             Hoje eu vejo profissionais extremamente capacitados <span className="text-gradient-gold">travados…</span>
           </h2>
         </motion.div>

@@ -22,7 +22,7 @@ const ScrollTextSection = () => {
   const rangePerPhrase = 1 / phrases.length;
 
   return (
-    <section id="scroll-section" ref={containerRef} className="h-[800vh] bg-black relative">
+    <section id="scroll-section" ref={containerRef} className="h-[400vh] md:h-[800vh] bg-black relative">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
         {/* Glow effects */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] rounded-full bg-primary/[0.08] blur-[150px]" />
@@ -49,7 +49,7 @@ const ScrollTextSection = () => {
                   transform: "translate(-50%, -50%)",
                   width: "100%",
                 }}
-                className="font-display text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight"
+                className="font-display text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-[1.15] md:leading-tight"
               >
                 {words.map((word, wordIndex) => {
                   const wordOffset = wordIndex * (rangePerPhrase * 0.1);
