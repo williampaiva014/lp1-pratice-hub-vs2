@@ -5,8 +5,9 @@ import ScrollTextSection from "@/components/ScrollTextSection";
 import MarketContextSection from "@/components/MarketContextSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import StorytellingSection from "@/components/StorytellingSection";
-import ProofSection from "@/components/ProofSection";
+import VideoSection from "@/components/VideoSection";
 import FinalCTASection from "@/components/FinalCTASection";
+import TargetAudienceSection from "@/components/TargetAudienceSection";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 
@@ -19,7 +20,8 @@ const Index = () => {
       <SocialProofSection />
       <ScrollTextSection />
       <StorytellingSection />
-      <ProofSection />
+      <VideoSection />
+      <TargetAudienceSection />
       <FinalCTASection />
       <Footer />
       <Navbar />

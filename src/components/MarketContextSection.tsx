@@ -46,13 +46,18 @@ const Bar3D = ({
   bar,
   index,
   inView,
+  mobile,
 }: {
   bar: (typeof bars)[0];
   index: number;
   inView: boolean;
+  mobile: boolean;
 }) => {
-  const heightPct = (bar.value / bar.max) * 100; // 0-100%
-  const maxBarH = 280; // px máximo
+  const heightPct = (bar.value / bar.max) * 100;
+  const maxBarH = mobile ? 160 : 280;
+  const barW = mobile ? 42 : 56;
+  const sideW = mobile ? 9 : 13;
+  const colW = mobile ? 52 : 68;
   const barH = (heightPct / 100) * maxBarH;
 
   return (
@@ -75,7 +80,7 @@ const Bar3D = ({
       {/* Container da barra 3D */}
       <div
         className="relative flex items-end justify-center"
-        style={{ height: `${maxBarH}px`, width: "68px" }}
+        style={{ height: `${maxBarH}px`, width: `${colW}px` }}
       >
         {/* Sombra difusa abaixo */}
         <div
@@ -92,7 +97,7 @@ const Bar3D = ({
         {/* Corpo principal da barra */}
         <motion.div
           className="relative rounded-t-sm overflow-hidden"
-          style={{ width: "56px" }}
+          style={{ width: `${barW}px` }}
           initial={{ height: 0 }}
           animate={inView ? { height: barH } : { height: 0 }}
           transition={{
@@ -131,7 +136,7 @@ const Bar3D = ({
         <motion.div
           className="absolute right-0 bottom-0"
           style={{
-            width: "13px",
+            width: `${sideW}px`,
             transformOrigin: "left bottom",
             transform: "skewY(-45deg)",
             background: `linear-gradient(180deg, ${bar.colorDark} 0%, hsl(228,30%,8%) 100%)`,
@@ -149,12 +154,12 @@ const Bar3D = ({
         <motion.div
           className="absolute"
           style={{
-            width: "56px",
-            height: "13px",
+            width: `${barW}px`,
+            height: `${sideW}px`,
             transformOrigin: "bottom left",
             transform: "skewX(-45deg)",
             background: `linear-gradient(90deg, rgba(255,255,255,0.55) 0%, ${bar.color} 100%)`,
-            right: "-13px",
+            right: `-${sideW}px`,
             bottom: `${barH}px`,
           }}
           initial={{ opacity: 0 }}
@@ -176,6 +181,8 @@ const Bar3D = ({
 const MarketContextSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  // Detecção de mobile (server-safe)
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
     <section
@@ -223,9 +230,9 @@ const MarketContextSection = () => {
                 animate={inView ? { rotateX: 8, rotateY: -6 } : {}}
               >
                 {/* Barras */}
-                <div className="flex items-end gap-8 px-8 pb-4">
+                <div className="flex items-end gap-4 sm:gap-6 md:gap-8 px-4 sm:px-8 pb-4">
                   {bars.map((bar, i) => (
-                    <Bar3D key={bar.label} bar={bar} index={i} inView={inView} />
+                    <Bar3D key={bar.label} bar={bar} index={i} inView={inView} mobile={isMobile} />
                   ))}
                 </div>
 
@@ -239,9 +246,9 @@ const MarketContextSection = () => {
                 />
 
                 {/* Reflexo das barras no chão */}
-                <div className="relative flex items-start gap-6 px-8 pt-0 opacity-20 scale-y-[-1] blur-sm">
+                <div className="relative flex items-start gap-3 sm:gap-6 px-4 sm:px-8 pt-0 opacity-20 scale-y-[-1] blur-sm">
                   {bars.map((bar, i) => {
-                    const barH = ((bar.value / bar.max) * 280) * 0.4;
+                    const barH = ((bar.value / bar.max) * (isMobile ? 160 : 280)) * 0.4;
                     return (
                       <div key={i} className="flex flex-col items-center" style={{ width: "68px" }}>
                         <motion.div

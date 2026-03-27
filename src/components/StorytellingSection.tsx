@@ -118,9 +118,8 @@ const ChapterSlide = ({
         {chapters.map((_, j) => (
           <div
             key={j}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              j === index ? "w-8 bg-primary" : "w-2 bg-white/20"
-            }`}
+            className={`h-1 rounded-full transition-all duration-300 ${j === index ? "w-8 bg-primary" : "w-2 bg-white/20"
+              }`}
           />
         ))}
       </div>
@@ -145,7 +144,7 @@ const StorytellingSection = () => {
       className="relative"
     >
       {/* ── Sticky wrapper ── */}
-      <div className="sticky top-16 h-[calc(100vh-4rem)] lg:h-[800px] overflow-hidden flex flex-col">
+      <div className="sticky top-16 h-[calc(100vh-4rem)] lg:h-[min(800px,calc(100vh-4rem))] overflow-hidden flex flex-col">
 
         {/* Glow bg */}
         <div className="absolute inset-0 pointer-events-none">
@@ -153,7 +152,7 @@ const StorytellingSection = () => {
         </div>
 
         {/* ── Header centralizado ── */}
-        <div className="flex flex-col items-center text-center pt-8 sm:pt-10 lg:pt-16 2xl:pt-12 pb-3 sm:pb-4 px-6 relative z-10">
+        <div className="flex flex-col items-center text-center pt-6 sm:pt-8 lg:pt-10 2xl:pt-8 pb-1 px-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-xs font-bold tracking-widest text-primary uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Minha História
@@ -165,11 +164,11 @@ const StorytellingSection = () => {
         </div>
 
         {/* ── Imagem mobile (entre header e timeline) ── */}
-        <div className="lg:hidden flex-shrink-0 flex justify-center px-6 pb-2">
+        <div className="lg:hidden flex-shrink-0 flex justify-center px-6 pb-1">
           <img
             src={pauloRobson}
             alt="Paulo Robson"
-            className="h-56 sm:h-64 w-auto object-contain object-top drop-shadow-[0_10px_40px_rgba(255,190,40,0.2)] select-none"
+            className="h-36 sm:h-44 w-auto object-contain object-top drop-shadow-[0_10px_40px_rgba(255,190,40,0.2)] select-none"
           />
         </div>
 
@@ -190,7 +189,7 @@ const StorytellingSection = () => {
             <div className="hidden lg:block w-px flex-shrink-0 h-3/4 self-center bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
 
             {/* DIREITA (ou full-width mobile): capítulos */}
-            <div className="flex-1 relative h-full">
+            <div className="flex-1 relative h-full overflow-y-auto lg:overflow-hidden">
               {chapters.map((ch, i) => (
                 <ChapterSlide
                   key={ch.tag}
@@ -205,7 +204,7 @@ const StorytellingSection = () => {
         </div>
 
         {/* ── Barra de progresso ── */}
-        <div className="relative z-10 pb-4 sm:pb-6 px-6 flex items-center justify-center gap-3">
+        <div className="relative z-10 py-3 px-6 flex items-center justify-center gap-3 flex-shrink-0">
           <div className="h-0.5 w-28 sm:w-32 bg-white/10 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-primary rounded-full"
