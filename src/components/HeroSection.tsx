@@ -1,132 +1,253 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Zap, TrendingDown, UserX, Globe } from "lucide-react";
+import pauloRobsonImg from "@/assets/paulo robson hd3.png";
+import logoImg from "@/assets/LOGOTIPO_P_1.png";
+
+const floatVariants = {
+  animate: {
+    y: [0, -12, 0],
+    transition: {
+      duration: 3.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+};
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 md:pt-32 md:pb-6">
-      {/* Radial glow behind text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.06] blur-[100px]" />
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-16"
+    >
+      {/* Background radial glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/[0.07] blur-[120px]" />
+      </div>
 
-      <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+      {/* ── FULL-HEIGHT IMAGE (desktop only, absolutely positioned right) ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.15 }}
+        className="hidden lg:block absolute pointer-events-none"
+        style={{ left: "var(--hero-img-left)", width: "var(--hero-img-width)", top: "10%", bottom: 0 }}
+        aria-hidden="true"
+      >
+        {/* White glow behind head – camufla borda superior */}
+        <div
+          className="absolute"
+          style={{
+            top: "-6%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "60%",
+            height: "35%",
+            background:
+              "radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 45%, transparent 70%)",
+            filter: "blur(18px)",
+          }}
+        />
+
+        {/* Neon glow behind Paulo – da altura dos ombros pra baixo */}
+        <div
+          className="absolute"
+          style={{
+            zIndex: 5,
+            top: "42%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90%",
+            height: "65%",
+            background: `
+              radial-gradient(ellipse 70% 60% at 50% 0%,
+                hsl(228 60% 22% / 0.9) 0%,
+                hsl(220 70% 18% / 0.6) 35%,
+                hsl(228 30% 11% / 0.2) 70%,
+                transparent 100%
+              )
+            `,
+            filter: "blur(22px)",
+          }}
+        />
+
+        <img
+          src={pauloRobsonImg}
+          alt=""
+          className="absolute inset-x-0 top-0 w-full h-auto object-contain object-top z-20"
+          style={{
+            maskImage: "linear-gradient(to right, transparent 0%, black 18%, black 100%), linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 18%, black 100%), linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
+          }}
+        />
+
+        {/* Badge ESQUERDO – na frente, ao lado esquerdo da imagem */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          variants={floatVariants}
+          animate="animate"
+          className="absolute bottom-16 z-30"
+          style={{
+            left: "12%",
+            filter:
+              "drop-shadow(0px 8px 24px rgba(0,0,0,0.8)) drop-shadow(0px 0px 20px hsl(42 78% 55% / 0.45))",
+          }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-xs font-medium text-primary mb-8">
-            <Zap size={14} />
-            Acesso antecipado aberto
+          <div className="glass rounded-2xl p-3 border border-primary/20">
+            <img
+              src={logoImg}
+              alt="Prátice Hub logo"
+              style={{ width: "var(--hero-badge-l-size)", height: "auto" }}
+            />
           </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6"
-        >
-          Pare de tentar{" "}
-          <span className="text-gradient-gold">crescer sozinho.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="font-display text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light mb-4 leading-relaxed"
-        >
-          Quem joga isolado só sobrevive.
-          <br />
-          <span className="text-foreground font-medium leading-tight">Quem se conecta, domina.</span>
-        </motion.p>
-
+        {/* Badge DIREITO – atrás da imagem, mais fosco */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-          className="mt-16 w-full max-w-4xl mx-auto flex flex-col items-center"
+          variants={{
+            animate: {
+              y: [0, -10, 0],
+              transition: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+            },
+          }}
+          animate="animate"
+          className="absolute right-4 z-10"
+          style={{
+            top: "40%",
+            opacity: 0.9,
+            filter: "blur(1.5px) drop-shadow(0px 4px 12px rgba(0,0,0,0.5))",
+          }}
         >
-          <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-medium text-foreground text-center px-4">
-            Eu demorei anos pra entender isso...
-          </h3>
-
-          {/* Simple vertical line for Mobile */}
-          <div className="md:hidden w-[2px] h-[32px] bg-border" />
-
-          {/* Desktop Flowchart Lines */}
-          <div className="hidden md:flex flex-col w-full items-center opacity-60">
-             {/* Stem from text */}
-             <div className="w-[2px] h-[32px] bg-border glow-gold-sm" />
-             {/* Horizontal bridge and 3 drops */}
-             <div className="w-[calc(66.666%+18px)] h-[32px] border-x-[2px] border-t-[2px] border-border relative flex justify-center rounded-t-sm">
-                <div className="w-[2px] h-full bg-border glow-gold-sm" />
-             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left relative z-10">
-            <div className="glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-gold/30 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full glass-gold flex items-center justify-center text-primary mb-2">
-                <TrendingDown size={24} />
-              </div>
-              <p className="text-foreground font-medium text-sm sm:text-base">Trabalhar mais não te faz crescer mais</p>
-            </div>
-            <div className="glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-gold/30 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full glass-gold flex items-center justify-center text-primary mb-2">
-                <UserX size={24} />
-              </div>
-              <p className="text-foreground font-medium text-sm sm:text-base">Fazer tudo sozinho te limita</p>
-            </div>
-            <div className="glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-gold/30 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full glass-gold flex items-center justify-center text-primary mb-2">
-                <Globe size={24} />
-              </div>
-              <p className="text-foreground font-medium text-sm sm:text-base">As melhores oportunidades não chegam para quem está isolado</p>
-            </div>
+          <div className="glass rounded-2xl p-4 border border-primary/10">
+            <img
+              src={logoImg}
+              alt=""
+              style={{ width: "var(--hero-badge-r-size)", height: "auto" }}
+            />
           </div>
         </motion.div>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="#benefits"
-            className="group relative px-8 py-4 rounded-full btn-gold-gradient font-display font-bold text-lg"
-          >
-            QUERO SABER MAIS
-          </a>
-          <a
-            href="#final"
-            className="px-8 py-4 rounded-full border border-gold/30 text-foreground font-display font-medium text-lg hover:border-gold/60 hover:text-primary transition-all duration-300"
-          >
-            QUERO CRESCER NA REDE
-          </a>
-        </motion.div>
+      {/* ── MAIN LAYOUT ── */}
+      <div className="container mx-auto px-6 relative z-10 w-full max-w-7xl">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-6 text-sm text-primary font-medium"
-        >
-          🔥 Os primeiros profissionais de cada região têm acesso gratuito garantido.
-        </motion.p>
+          {/* ── LEFT COLUMN: Copy (desktop: 50%, mobile: full) ── */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="mt-8 flex justify-center pb-2"
+            {/* Chip de destaque */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-xs font-bold tracking-widest text-primary mb-6 uppercase"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              O Ecossistema da Construção Civil
+            </motion.div>
+
+            {/* H1 */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-6"
+            >
+              Cresça mais, trabalhe com mais inteligência e{" "}
+              <span className="text-gradient-gold">
+                pare de depender só de você mesmo!
+              </span>
+            </motion.h1>
+
+            {/* Subtítulo */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+              className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+            >
+              O Prátice Hub é a plataforma onde engenheiros, arquitetos,
+              construtores e profissionais da construção civil se conectam,
+              colaboram e faturam mais,{" "}
+              <span className="text-foreground font-medium">
+                juntos, dentro de um ecossistema criado para o seu mercado.
+              </span>
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
+            >
+              <a
+                href="#final"
+                className="inline-block px-10 py-4 rounded-full btn-gold-gradient font-display font-bold text-lg tracking-wide shadow-lg"
+              >
+                QUERO FAZER PARTE
+              </a>
+            </motion.div>
+          </div>
+
+          {/* ── RIGHT COLUMN: mobile image only (desktop uses absolute) ── */}
+          <div className="lg:hidden w-full flex justify-center">
+            <div className="relative w-full max-w-sm">
+              <img
+                src={pauloRobsonImg}
+                alt="Dr. Paulo Robson – Fundador do Prátice Hub"
+                className="w-full h-auto object-cover"
+                style={{
+                  maskImage:
+                    "radial-gradient(ellipse 85% 85% at 50% 40%, black 50%, transparent 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 85% 85% at 50% 40%, black 50%, transparent 100%)",
+                }}
+              />
+              <motion.div
+                variants={floatVariants}
+                animate="animate"
+                className="absolute bottom-6 right-4 z-30"
+                style={{
+                  filter:
+                    "drop-shadow(0px 6px 16px rgba(0,0,0,0.7)) drop-shadow(0px 0px 14px hsl(42 78% 55% / 0.4))",
+                }}
+              >
+                <div className="glass rounded-xl p-2 border border-primary/20">
+                  <img src={logoImg} alt="Prátice Hub logo" className="w-20 h-auto" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* ── Gold arc divider – bottom border of Hero ── */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden pointer-events-none" style={{ height: "10px", zIndex: 2 }}>
+        <svg
+          viewBox="0 0 1440 30"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <ArrowDown size={20} className="text-muted-foreground" />
-          </motion.div>
-        </motion.div>
+          <defs>
+            <linearGradient id="gold-arc" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(42,78%,55%)" stopOpacity="0" />
+              <stop offset="20%" stopColor="hsl(42,78%,55%)" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="hsl(42,85%,65%)" stopOpacity="1" />
+              <stop offset="80%" stopColor="hsl(42,78%,55%)" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="hsl(42,78%,55%)" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* Linha reta com gradiente dourado */}
+          <path d="M 0,5 L 1440,5"
+            fill="none" stroke="url(#gold-arc)" strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <path d="M 0,5 L 1440,5"
+            fill="none" stroke="url(#gold-arc)" strokeWidth="0.5"
+            strokeLinecap="round" opacity="0.35"
+          />
+        </svg>
       </div>
     </section>
   );

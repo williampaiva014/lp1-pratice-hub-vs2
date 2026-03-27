@@ -66,25 +66,25 @@ const Navbar = () => {
         isDarkSection ? "bg-[#050505] py-3" : scrolled ? "glass py-3" : "py-5 bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 lg:px-6 xl:px-8 flex items-center justify-between">
         <a href="#hero" className="flex items-center">
-          <img src={logoPrata} alt="Prátice Hub" className="h-10 md:h-12" />
+          <img src={logoPrata} alt="Prátice Hub" className="h-9 lg:h-10 xl:h-12" />
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              className="text-xs lg:text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}
             </a>
           ))}
           <a
             href="#final"
-            className="px-5 py-2 text-sm font-bold rounded-full btn-gold-gradient"
+            className="px-4 lg:px-5 xl:px-5 py-1.5 lg:py-2 text-xs lg:text-sm font-bold rounded-full btn-gold-gradient whitespace-nowrap"
           >
             Acessar Agora
           </a>

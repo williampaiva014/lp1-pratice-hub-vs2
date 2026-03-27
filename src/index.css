@@ -128,3 +128,45 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(42 78% 55% / 0.5);
 }
+
+/* ── Hero Image Panel – responsive positioning ──────────────────────
+   Default (2xl / 1920px+): exact values approved by user.
+   Override for smaller lg/xl screens to keep image in the right half
+   without overlapping the text column.
+────────────────────────────────────────────────────────────────────── */
+:root {
+  --hero-img-left: 45%;
+  --hero-img-width: 40%;
+  --hero-badge-l-size: 7rem;   /* w-28 */
+  --hero-badge-r-size: 9rem;   /* w-36 */
+}
+
+/* Notebook small: 1024–1139px */
+@media (min-width: 1024px) and (max-width: 1139px) {
+  :root {
+    --hero-img-left: 52%;
+    --hero-img-width: 46%;
+    --hero-badge-l-size: 4.5rem;
+    --hero-badge-r-size: 5.5rem;
+  }
+}
+
+/* Notebook mid: 1140–1279px */
+@media (min-width: 1140px) and (max-width: 1279px) {
+  :root {
+    --hero-img-left: 50%;
+    --hero-img-width: 46%;
+    --hero-badge-l-size: 5rem;
+    --hero-badge-r-size: 6.5rem;
+  }
+}
+
+/* Notebook large / xl: 1280–1535px (covers 1280px and 1366px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  :root {
+    --hero-img-left: 48%;
+    --hero-img-width: 43%;
+    --hero-badge-l-size: 6rem;
+    --hero-badge-r-size: 7.5rem;
+  }
+}
