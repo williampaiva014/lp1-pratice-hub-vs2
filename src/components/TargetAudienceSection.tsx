@@ -309,9 +309,10 @@ const TargetAudienceSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex justify-center lg:justify-start"
             >
               <a
-                href="#"
+                href="#cta-final"
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-full btn-gold-gradient font-display text-base font-bold tracking-wide"
               >
                 QUERO FAZER PARTE

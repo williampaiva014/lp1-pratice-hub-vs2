@@ -87,6 +87,7 @@ const DifferentiationSection = () => {
 
         {/* Closing Card (Final CTA) */}
         <motion.div
+          id="cta-final"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -112,7 +113,9 @@ const DifferentiationSection = () => {
           </p>
 
           <a
-            href="#"
+            href="https://engpaulorobson.com.br/formnovomembro"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full btn-gold-gradient font-display text-lg tracking-wide w-full sm:w-auto shadow-[0_10px_40px_rgba(200,150,40,0.3)]"
           >
             QUERO FAZER PARTE DO PRÁTICE HUB

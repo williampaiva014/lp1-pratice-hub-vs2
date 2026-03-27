@@ -181,7 +181,7 @@ const HeroSection = () => {
               transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
             >
               <a
-                href="#final"
+                href="#cta-final"
                 className="inline-block px-10 py-4 rounded-full btn-gold-gradient font-display font-bold text-lg tracking-wide shadow-lg"
               >
                 QUERO FAZER PARTE

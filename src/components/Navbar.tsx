@@ -8,7 +8,7 @@ const navItems = [
   { label: "O Mercado", href: "#market", icon: BarChart3 },
   { label: "História", href: "#story", icon: BookOpen },
   { label: "Para Quem", href: "#para-quem", icon: Star },
-  { label: "Diferenciais", href: "#differentiation", icon: LogIn },
+  { label: "Diferenciais", href: "#cta-final", icon: LogIn },
 ];
 
 const Navbar = () => {
@@ -83,7 +83,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#differentiation"
+            href="#cta-final"
             className="px-4 lg:px-5 xl:px-5 py-1.5 lg:py-2 text-xs lg:text-sm font-bold rounded-full btn-gold-gradient whitespace-nowrap"
           >
             Acessar Agora

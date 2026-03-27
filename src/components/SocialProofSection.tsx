@@ -246,18 +246,36 @@ const SocialProofSection = () => {
           </div>
 
           {/* ── Rodapé do card ── */}
-          <div className="px-8 sm:px-12 pb-10 border-t border-gray-100 pt-8">
+          <div className="px-8 sm:px-12 pb-12 border-t border-gray-100 pt-10 flex flex-col items-center">
             <motion.p
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.5 }}
-              className="text-center text-gray-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
+              className="text-center text-gray-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8"
             >
               Parcerias estão sendo formadas. Novos negócios estão surgindo.{" "}
               <span className="text-gray-900 font-bold">
                 O ambiente já existe. Você só ainda não entrou!
               </span>
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.7 }}
+            >
+              <a 
+                href="#cta-final"
+                className="group flex flex-row items-center gap-3 px-8 py-4 rounded-full btn-gold-gradient font-display text-base font-bold tracking-wide shadow-[0_10px_30px_rgba(200,150,40,0.25)] hover:shadow-[0_15px_40px_rgba(200,150,40,0.35)] transition-all"
+              >
+                FAZER PARTE DO MOVIMENTO
+                <span className="w-5 h-5 rounded-full bg-background/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <svg className="w-3.5 h-3.5 text-background" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </motion.div>
           </div>
 
         </motion.div>
