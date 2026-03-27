@@ -5,10 +5,10 @@ import logoPrata from "@/assets/logo pratice3.png";
 
 const navItems = [
   { label: "Início", href: "#hero", icon: Home },
-  { label: "Benefícios", href: "#benefits", icon: Star },
+  { label: "O Mercado", href: "#market", icon: BarChart3 },
   { label: "História", href: "#story", icon: BookOpen },
-  { label: "Resultados", href: "#proof", icon: BarChart3 },
-  { label: "Entrar", href: "#final", icon: LogIn },
+  { label: "Para Quem", href: "#para-quem", icon: Star },
+  { label: "Diferenciais", href: "#differentiation", icon: LogIn },
 ];
 
 const Navbar = () => {
@@ -83,7 +83,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#final"
+            href="#differentiation"
             className="px-4 lg:px-5 xl:px-5 py-1.5 lg:py-2 text-xs lg:text-sm font-bold rounded-full btn-gold-gradient whitespace-nowrap"
           >
             Acessar Agora
@@ -130,12 +130,10 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * i }}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-5 text-2xl font-display font-medium text-muted-foreground hover:text-foreground transition-all group"
+                  className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/5 text-lg font-medium text-foreground active:scale-95 transition-all"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-gold/10 group-hover:text-primary transition-colors">
-                    <item.icon size={20} />
-                  </div>
-                  <span>{item.label}</span>
+                  <item.icon className="text-primary" size={24} />
+                  {item.label}
                 </motion.a>
               ))}
               

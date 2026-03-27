@@ -6,7 +6,7 @@ import MarketContextSection from "@/components/MarketContextSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import StorytellingSection from "@/components/StorytellingSection";
 import VideoSection from "@/components/VideoSection";
-import FinalCTASection from "@/components/FinalCTASection";
+import DifferentiationSection from "@/components/DifferentiationSection";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
@@ -22,7 +22,7 @@ const Index = () => {
       <StorytellingSection />
       <VideoSection />
       <TargetAudienceSection />
-      <FinalCTASection />
+      <DifferentiationSection />
       <Footer />
       <Navbar />
       <CookieConsent />

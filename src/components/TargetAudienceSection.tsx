@@ -169,17 +169,11 @@ const IPhoneMockup = ({ inView }: { inView: boolean }) => (
       className="absolute top-6 right-4 z-20"
       style={{
         animation: inView ? "float 3s ease-in-out infinite" : undefined,
+        filter: "drop-shadow(0px 8px 24px rgba(0,0,0,0.8)) drop-shadow(0px 0px 20px hsl(42 78% 55% / 0.45))",
       }}
     >
-      <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center p-2"
-        style={{
-          background:
-            "linear-gradient(135deg, hsl(42,78%,55%) 0%, hsl(36,68%,38%) 100%)",
-          boxShadow: "0 8px 30px rgba(200,150,40,0.5)",
-        }}
-      >
-        <img src={praticeSymbol} alt="Prátice" className="w-full h-full object-contain" />
+      <div className="glass rounded-2xl p-3 border border-primary/20 w-16 h-16 flex items-center justify-center">
+        <img src={praticeSymbol} alt="Prátice" className="w-full h-full object-contain shadow-sm" />
       </div>
     </motion.div>
 
