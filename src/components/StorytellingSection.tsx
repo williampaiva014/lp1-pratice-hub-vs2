@@ -181,10 +181,10 @@ const StorytellingSection = () => {
           </div>
         </div>
 
-        {/* Rodapé: dots de progresso + scroll hint */}
-        <div className="relative z-10 py-4 px-8 flex items-center justify-center gap-3 flex-shrink-0">
+        {/* Rodapé: dots de progresso + scroll hint (Desktop) */}
+        <div className="relative z-10 py-4 px-8 flex items-center justify-center gap-4 flex-shrink-0">
           <div className="flex items-center gap-2">
-            {chapters.map((_, i) => (
+             {chapters.map((_, i) => (
               <div
                 key={i}
                 className="rounded-full transition-all duration-300"
@@ -193,13 +193,13 @@ const StorytellingSection = () => {
                   height: "6px",
                   background: i === activeChapter
                     ? "hsl(42,90%,58%)"
-                    : "rgba(255,255,255,0.15)",
+                    : "rgba(255,255,255,0.2)",
                 }}
               />
             ))}
           </div>
-          <div className="h-3 w-px bg-white/10" />
-          <span className="text-[10px] text-muted-foreground tracking-widest uppercase opacity-40">
+          <div className="h-4 w-px bg-white/10" />
+          <span className="text-[10px] font-bold text-white/40 tracking-[0.2em] uppercase whitespace-nowrap">
             Role para continuar
           </span>
         </div>
@@ -232,6 +232,20 @@ const StorytellingSection = () => {
             alt="Paulo Robson"
             className="relative z-10 w-full max-w-[300px] object-contain"
           />
+        </div>
+
+        {/* Scroll Hint Mobile */}
+        <div className="flex items-center justify-center gap-4 mb-10 opacity-80">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-6 h-1.5 rounded-full bg-[hsl(42,90%,58%)]" />
+          </div>
+          <div className="h-4 w-px bg-white/10" />
+          <span className="text-[10px] font-bold text-white/40 tracking-[0.2em] uppercase whitespace-nowrap">
+            Role para continuar
+          </span>
         </div>
 
         {/* Capítulos — todos visíveis de uma vez */}
