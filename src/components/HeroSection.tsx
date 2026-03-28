@@ -86,9 +86,8 @@ const HeroSection = () => {
         <motion.div
           variants={floatVariants}
           animate="animate"
-          className="absolute bottom-16 z-30"
+          className="absolute bottom-16 right-6 left-auto lg:right-auto lg:left-[15%] z-30"
           style={{
-            left: "12%",
             filter:
               "drop-shadow(0px 8px 24px rgba(0,0,0,0.8)) drop-shadow(0px 0px 20px hsl(42 78% 55% / 0.45))",
           }}
@@ -111,11 +110,10 @@ const HeroSection = () => {
             },
           }}
           animate="animate"
-          className="absolute right-4 z-10"
+          className="absolute top-[28%] lg:top-[40%] left-2 lg:left-auto right-auto lg:right-4 z-10"
           style={{
-            top: "40%",
-            opacity: 0.9,
-            filter: "blur(1.5px) drop-shadow(0px 4px 12px rgba(0,0,0,0.5))",
+            opacity: 1,
+            filter: "drop-shadow(0px 8px 24px rgba(0,0,0,0.5))",
           }}
         >
           <div className="glass rounded-2xl p-4 border border-primary/10">
@@ -130,7 +128,7 @@ const HeroSection = () => {
 
       {/* ── MAIN LAYOUT ── */}
       <div className="container mx-auto px-6 relative z-10 w-full max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
 
           {/* ── LEFT COLUMN: Copy (desktop: 50%, mobile: full) ── */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">

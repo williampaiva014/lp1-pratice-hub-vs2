@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/praticehub/",
   server: {
     host: "::",
     port: 8080,
@@ -12,6 +13,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  assetsInclude: ['**/*.PNG'],
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

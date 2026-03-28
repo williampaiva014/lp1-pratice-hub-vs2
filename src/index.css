@@ -170,3 +170,11 @@
     --hero-badge-r-size: 7.5rem;
   }
 }
+/* Note: Default root values apply to desktop, and the above queries refine for notebooks.
+   Let's add a explicit mobile override for screens < 1024px to ensure logos are appropriately sized. */
+@media (max-width: 1023px) {
+  :root {
+    --hero-badge-l-size: 3.5rem;
+    --hero-badge-r-size: 4.5rem;
+  }
+}

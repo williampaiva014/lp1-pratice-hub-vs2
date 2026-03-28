@@ -8,36 +8,36 @@ const bars = [
     sublabel: "Construção Civil",
     value: 6,
     max: 10,
-    color: "hsl(42,78%,55%)",
-    colorDark: "hsl(36,70%,35%)",
-    suffix: "% do PIB",
+    topLabel: "6%",
+    color: "hsl(42,90%,58%)",
+    colorDark: "hsl(36,70%,33%)",
   },
   {
     label: "Empregos",
     sublabel: "Diretos",
     value: 8,
     max: 10,
-    color: "hsl(42,78%,60%)",
-    colorDark: "hsl(36,70%,38%)",
-    suffix: "M+",
+    topLabel: "8M+",
+    color: "hsl(185,80%,48%)",
+    colorDark: "hsl(185,70%,25%)",
   },
   {
     label: "Déficit",
     sublabel: "Habitacional",
     value: 8,
     max: 10,
-    color: "hsl(42,85%,65%)",
-    colorDark: "hsl(36,70%,40%)",
-    suffix: "M unidades",
+    topLabel: "8M",
+    color: "hsl(142,70%,45%)",
+    colorDark: "hsl(142,60%,22%)",
   },
   {
-    label: "Mcmv",
+    label: "MCMV",
     sublabel: "Até 2026",
     value: 2,
     max: 10,
-    color: "hsl(42,78%,52%)",
-    colorDark: "hsl(36,68%,32%)",
-    suffix: "M unidades",
+    topLabel: "2M",
+    color: "hsl(262,80%,65%)",
+    colorDark: "hsl(262,60%,32%)",
   },
 ];
 
@@ -62,20 +62,25 @@ const Bar3D = ({
 
   return (
     <motion.div
-      className="flex flex-col items-center gap-2"
+      className="flex flex-col items-center gap-0.5"
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
     >
-      {/* Valor flutuante */}
-      <motion.span
-        className="text-xs font-bold text-primary"
+      {/* Valor no topo da barra — colado logo acima da barra */}
+      <motion.div
+        className="flex flex-col items-center"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
-        transition={{ delay: 0.6 + index * 0.15 }}
+        transition={{ delay: 0.8 + index * 0.15 }}
       >
-        {bar.suffix}
-      </motion.span>
+        <span
+          className="font-display font-extrabold leading-none"
+          style={{ fontSize: mobile ? "18px" : "24px", color: bar.color }}
+        >
+          {bar.topLabel}
+        </span>
+      </motion.div>
 
       {/* Container da barra 3D */}
       <div

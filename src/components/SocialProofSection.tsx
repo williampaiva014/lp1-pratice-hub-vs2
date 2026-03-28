@@ -1,6 +1,17 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+// Imagens de depoimentos
+import img1136 from "@/assets/IMG_1136.PNG";
+import img1146 from "@/assets/IMG_1146.PNG";
+import img1147 from "@/assets/IMG_1147.PNG";
+import img1148 from "@/assets/IMG_1148.PNG";
+import img1149 from "@/assets/IMG_1149.PNG";
+import img1151 from "@/assets/IMG_1151.PNG";
+import img3945 from "@/assets/IMG_3945.PNG";
+import img3946 from "@/assets/IMG_3946.PNG";
+import img3947 from "@/assets/IMG_3947.PNG";
+
 /* ─── Estatísticas de destaque ──────────────────────────────────── */
 const stats = [
   {
@@ -9,8 +20,8 @@ const stats = [
     icon: "👷",
   },
   {
-    number: "Diário",
-    label: "indicações acontecendo entre membros",
+    number: "+17M",
+    label: "de negócios gerados com Indicações",
     icon: "🤝",
   },
   {
@@ -20,109 +31,35 @@ const stats = [
   },
 ];
 
-/* ─── Cards do carrossel infinito ───────────────────────────────── */
-const testimonials = [
-  {
-    type: "depoimento",
-    name: "Rafael Mendonça",
-    role: "Engenheiro Civil · São Paulo",
-    text: "Em 3 meses dentro do Prátice Hub, fechei 2 parcerias e economizei R$ 42k em insumos. Não tem como voltar atrás.",
-    avatar: "RM",
-    stars: 5,
-  },
-  {
-    type: "resultado",
-    name: "Construtora Neto & Silva",
-    role: "Construtora · Goiânia",
-    text: "A indicação de um colega do Hub me gerou R$ 180k em obra. Em 15 dias. É o ambiente certo.",
-    avatar: "NS",
-    stars: 5,
-  },
-  {
-    type: "depoimento",
-    name: "Mariana Figueiredo",
-    role: "Arquiteta de Interiores · Curitiba",
-    text: "O networking que eu tentei montar há anos, o Hub me entregou em semanas. Parcerias reais, projetos reais.",
-    avatar: "MF",
-    stars: 5,
-  },
-  {
-    type: "resultado",
-    name: "Lucas Andrade",
-    role: "Corretor de Imóveis · Brasília",
-    text: "Foram 4 fechamentos em 60 dias graças a indicações que vieram do ecossistema. O ROI é absurdo.",
-    avatar: "LA",
-    stars: 5,
-  },
-  {
-    type: "depoimento",
-    name: "Carla Dutra",
-    role: "Engenheira Civil · Rio de Janeiro",
-    text: "Não sabia que existia um ambiente assim para a construção civil. Hoje não consigo imaginar meu negócio sem ele.",
-    avatar: "CD",
-    stars: 5,
-  },
-  {
-    type: "resultado",
-    name: "Diego Pereira",
-    role: "Construtor · Belo Horizonte",
-    text: "Economizei mais de R$ 90k em compras coletivas só no primeiro trimestre. O Hub paga ele mesmo e muito mais.",
-    avatar: "DP",
-    stars: 5,
-  },
-  {
-    type: "depoimento",
-    name: "Ana Paula Costa",
-    role: "Arquiteta · Salvador",
-    text: "A qualidade das conexões aqui é de outro nível. Não é troca de cartão — é parceria séria com profissional de verdade.",
-    avatar: "AC",
-    stars: 5,
-  },
-  {
-    type: "resultado",
-    name: "Marcos Teixeira",
-    role: "Engenheiro · Florianópolis",
-    text: "Indiquei um parceiro do Hub e recebi comissão. Ele fechou o projeto e trouxe mais dois clientes pra mim. Ciclo virtuoso.",
-    avatar: "MT",
-    stars: 5,
-  },
+/* ─── Imagens do carrossel infinito ───────────────────────────────── */
+const testimonialImages = [
+  img1136,
+  img1146,
+  img1147,
+  img1148,
+  img1149,
+  img1151,
+  img3945,
+  img3946,
+  img3947,
 ];
 
-/* ─── Card individual ────────────────────────────────────────────── */
-const TestimonialCard = ({ item }: { item: (typeof testimonials)[0] }) => (
-  <div
-    className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-2xl p-5 shadow-md border border-gray-100 flex flex-col gap-3"
-    style={{ minHeight: "180px" }}
-  >
-    {/* Stars */}
-    <div className="flex gap-0.5">
-      {Array.from({ length: item.stars }).map((_, i) => (
-        <span key={i} className="text-yellow-400 text-sm">★</span>
-      ))}
-    </div>
-
-    {/* Texto */}
-    <p className="text-gray-700 text-sm leading-relaxed flex-1">
-      "{item.text}"
-    </p>
-
-    {/* Autor */}
-    <div className="flex items-center gap-3 mt-auto pt-2 border-t border-gray-100">
-      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-        {item.avatar}
-      </div>
-      <div>
-        <p className="text-gray-900 text-xs font-bold leading-tight">{item.name}</p>
-        <p className="text-gray-400 text-[10px]">{item.role}</p>
-      </div>
-    </div>
+/* ─── Card individual de imagem ────────────────────────────────────── */
+const TestimonialCard = ({ src }: { src: string }) => (
+  <div className="flex-shrink-0 w-64 sm:w-72 lg:w-80 rounded-2xl shadow-sm overflow-hidden flex items-center justify-center pointer-events-none">
+    <img 
+      src={src} 
+      alt="Depoimento de membro do Prátice Hub" 
+      className="w-full h-auto object-cover rounded-2xl select-none"
+      draggable={false}
+    />
   </div>
 );
 
 /* ─── Carrossel infinito ─────────────────────────────────────────── */
 const InfiniteCarousel = () => {
   // Duplica os itens para criar o loop sem interrupção
-  const doubled = [...testimonials, ...testimonials];
+  const doubled = [...testimonialImages, ...testimonialImages];
 
   return (
     <div className="relative overflow-hidden w-full">
@@ -147,8 +84,8 @@ const InfiniteCarousel = () => {
           repeatType: "loop",
         }}
       >
-        {doubled.map((item, i) => (
-          <TestimonialCard key={i} item={item} />
+        {doubled.map((src, i) => (
+          <TestimonialCard key={i} src={src} />
         ))}
       </motion.div>
     </div>
@@ -264,7 +201,7 @@ const SocialProofSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.7 }}
             >
-              <a 
+              <a
                 href="#cta-final"
                 className="group flex flex-row items-center gap-3 px-8 py-4 rounded-full btn-gold-gradient font-display text-base font-bold tracking-wide shadow-[0_10px_30px_rgba(200,150,40,0.25)] hover:shadow-[0_15px_40px_rgba(200,150,40,0.35)] transition-all"
               >
