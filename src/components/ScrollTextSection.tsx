@@ -80,6 +80,29 @@ const ScrollTextSection = () => {
             );
           })}
         </div>
+        
+        {/* Scroll Hint (Fixed exactly as reference image) for all devices */}
+        <motion.div 
+          className="absolute bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 z-50 opacity-80"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+        >
+          <div className="flex items-center gap-2">
+            {/* Dots */}
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            {/* Yellow pill */}
+            <div className="w-6 h-1.5 rounded-full bg-[hsl(42,90%,58%)]" />
+          </div>
+          {/* Separator */}
+          <div className="h-4 w-px bg-white/10" />
+          {/* Text */}
+          <span className="text-[10px] font-bold text-white/40 tracking-[0.2em] uppercase whitespace-nowrap">
+            Role para continuar
+          </span>
+        </motion.div>
       </div>
     </section>
   );
