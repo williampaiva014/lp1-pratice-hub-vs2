@@ -133,9 +133,7 @@ const MechanismSection = () => {
             </div>
 
             <a
-              href="https://engpaulorobson.com.br/formnovomembro"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#cta-final"
               className="inline-flex items-center justify-center gap-3 px-8 sm:px-14 py-4 sm:py-6 rounded-full btn-gold-gradient font-display text-base sm:text-lg font-bold tracking-widest w-full sm:w-auto hover:scale-105 transition-transform duration-300 shadow-[0_10px_40px_rgba(200,150,40,0.25)] uppercase"
             >
               QUERO FATURAR

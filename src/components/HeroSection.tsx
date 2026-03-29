@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { AlertCircle } from "lucide-react";
 import pauloRobsonImg from "@/assets/paulo robson hd3.png";
 import logoImg from "@/assets/LOGOTIPO_P_1.png";
 import instaImg from "@/assets/insta-profile.png";
@@ -187,15 +188,28 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
             >
               O Prátice Hub é a plataforma onde engenheiros, arquitetos,
               construtores e profissionais da construção civil se conectam,
-              colaboram e faturam mais,{" "}
+              colaboram e faturam mais, <span className="text-primary font-bold">juntos…</span>{" "}
               <span className="text-foreground font-medium">
-                juntos, dentro de um ecossistema criado para o seu mercado.
+                E você só está aqui porque foi convidado por alguém que já faz parte desse ecossistema.
               </span>
             </motion.p>
+
+            {/* Frase Extra Urgente */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-primary/10 border border-primary/25 text-primary mb-10 mx-auto lg:mx-0 shadow-[0_0_20px_rgba(234,179,8,0.1)] group hover:scale-[1.02] transition-transform duration-300"
+            >
+              <AlertCircle className="w-5 h-5 animate-pulse" />
+              <span className="text-sm sm:text-base font-semibold tracking-tight">
+                Convites limitados por região. Quem entra primeiro, se posiciona melhor.
+              </span>
+            </motion.div>
 
             {/* CTA Button */}
             <motion.div
@@ -208,7 +222,7 @@ const HeroSection = () => {
                 href="#cta-final"
                 className="inline-block px-10 py-4 rounded-full btn-gold-gradient font-display font-bold text-lg tracking-wide shadow-lg"
               >
-                QUERO FAZER PARTE
+                QUERO ACEITAR MEU CONVITE
               </a>
             </motion.div>
           </div>
