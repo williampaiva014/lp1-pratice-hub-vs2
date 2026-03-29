@@ -6,12 +6,10 @@ import { LogIn, Users, RefreshCw, Briefcase, TrendingUp, ArrowRight } from "luci
 import img1136 from "@/assets/IMG_1136.PNG";
 import img1146 from "@/assets/IMG_1146.PNG";
 import img1147 from "@/assets/IMG_1147.PNG";
-import img1148 from "@/assets/IMG_1148.PNG";
-import img1149 from "@/assets/IMG_1149.PNG";
 import img1151 from "@/assets/IMG_1151.PNG";
 
 const testimonialImages = [
-  img1136, img1146, img1147, img1148, img1149, img1151
+  img1136, img1146, img1147, img1151
 ];
 
 const steps = [
@@ -121,12 +119,12 @@ const MechanismSection = () => {
                 transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
                 style={{ width: "max-content" }}
               >
-                {[...testimonialImages, ...testimonialImages].map((img, i) => (
+                {[...testimonialImages, ...testimonialImages, ...testimonialImages].map((img, i) => (
                   <img
                     key={i}
                     src={img}
                     alt=""
-                    className="h-[600px] sm:h-[450px] w-auto rounded-3xl shadow-2xl border border-white/10 opacity-95 hover:opacity-100 transition-all hover:scale-105"
+                    className="h-[550px] sm:h-[650px] lg:h-[750px] w-auto rounded-[32px] shadow-2xl border border-white/10 opacity-95 hover:opacity-100 transition-all hover:scale-105 shrink-0"
                   />
                 ))}
               </motion.div>
