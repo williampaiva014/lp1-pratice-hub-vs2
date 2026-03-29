@@ -2,15 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 // Imagens de depoimentos
-import img1136 from "@/assets/IMG_1136.PNG";
-import img1146 from "@/assets/IMG_1146.PNG";
-import img1147 from "@/assets/IMG_1147.PNG";
-import img1148 from "@/assets/IMG_1148.PNG";
-import img1149 from "@/assets/IMG_1149.PNG";
-import img1151 from "@/assets/IMG_1151.PNG";
 import img3945 from "@/assets/IMG_3945.PNG";
 import img3946 from "@/assets/IMG_3946.PNG";
 import img3947 from "@/assets/IMG_3947.PNG";
+import img4002 from "@/assets/IMG_4002.PNG";
+import img4003 from "@/assets/IMG_4003.PNG";
+import img4004 from "@/assets/IMG_4004.PNG";
+import img4005 from "@/assets/IMG_4005.PNG";
+import img4006 from "@/assets/IMG_4006.PNG";
 
 /* ─── Estatísticas de destaque ──────────────────────────────────── */
 const stats = [
@@ -26,19 +25,18 @@ const stats = [
   },
   {
     number: "R$ 10M+",
-    label: "já gerados em economia para clientes",
+    label: "já gerados em economia para clientes da rede",
     icon: "💰",
   },
 ];
 
 /* ─── Imagens do carrossel infinito ───────────────────────────────── */
 const testimonialImages = [
-  img1136,
-  img1146,
-  img1147,
-  img1148,
-  img1149,
-  img1151,
+  img4002,
+  img4003,
+  img4004,
+  img4005,
+  img4006,
   img3945,
   img3946,
   img3947,
@@ -46,10 +44,10 @@ const testimonialImages = [
 
 /* ─── Card individual de imagem ────────────────────────────────────── */
 const TestimonialCard = ({ src }: { src: string }) => (
-  <div className="flex-shrink-0 w-64 sm:w-72 lg:w-80 rounded-2xl shadow-sm overflow-hidden flex items-center justify-center pointer-events-none">
-    <img 
-      src={src} 
-      alt="Depoimento de membro do Prátice Hub" 
+  <div className="flex-shrink-0 w-[85vw] sm:w-72 lg:w-80 rounded-2xl shadow-sm overflow-hidden flex items-center justify-center pointer-events-none">
+    <img
+      src={src}
+      alt="Depoimento de membro do Prátice Hub"
       className="w-full h-auto object-cover rounded-2xl select-none"
       draggable={false}
     />
@@ -159,7 +157,7 @@ const SocialProofSection = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.7, delay: 0.25 + i * 0.12 }}
                   className="flex flex-col items-center text-center gap-1 rounded-2xl px-6 py-6"
-                  style={{ background: "#f9f9f9", boxShadow: "0 4px 20px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04)" }}
+                  style={{ background: "linear-gradient(135deg, #FFFCF5 0%, #FFF3D6 100%)", boxShadow: "0 4px 20px rgba(200,150,40,0.08), 0 0 0 1px rgba(200,150,40,0.15)" }}
                 >
                   <span className="text-3xl mb-1">{stat.icon}</span>
                   <span

@@ -7,29 +7,36 @@ const chapters = [
   {
     year: "Origem",
     tag: "O COMEÇO",
-    title: "Do interior do Nordeste. 14 mil habitantes.",
-    text: "O ponto de partida não define o destino. Venho de uma realidade onde as oportunidades eram escassas, mas a visão era clara: o conhecimento técnico somado à estratégia de negócios é a única saída para a liberdade.",
+    title: "Do interior do Nordeste para o Brasil",
+    text: "Eu nasci e cresci no interior do Ceará, numa cidade de 14 mil habitantes. Sem acesso. Sem conexões. Sem quem abrisse portas. Só com uma decisão: Dar certo.",
     accent: "A engenharia foi o meio, o negócio foi o fim.",
   },
   {
-    year: "A Jornada",
-    tag: "A BUSCA",
-    title: "Cresci, construí carreira, gerei resultado.",
-    text: "Mas como a maioria dos profissionais da construção... cresci sozinho — e isso tem um preço. Percebi que o mercado estava saturado de bons técnicos que não sabiam vender.",
+    year: "O limite",
+    tag: "2018",
+    title: "Desemprego. Calote.",
+    text: "Em 2018, bati no meu teto de crescimento. No meio da crise política no país, a construtora quebrou, perdi meu emprego. Sem saída, decidi empreender.\n\nMas o que era pra ser um recomeço virou um dos momentos mais duros da minha vida: um “parceiro” me deu um calote e zerou tudo que eu tinha construído desde os meus 8 anos. Não foi só financeiro. Foi confiança quebrada, abalo emocional… e um medo real de tentar de novo.",
     accent: "",
   },
   {
-    year: "2024",
-    tag: "A VIRADA",
-    title: "Ali, pela primeira vez, entendi o jogo de verdade.",
+    year: "A Virada",
+    tag: "2024",
+    title: "Depois da depressão veio a virada",
     text: "Um convite para um evento em Alphaville. Ambientes certos. Pessoas certas. Conexões que viraram negócios de alto nível. O Prátice Hub nasceu dessa necessidade de ambiência.",
     accent: "Networking é a moeda mais forte da construção civil.",
   },
   {
-    year: "Hoje",
-    tag: "A MISSÃO",
+    year: "O Propósito",
+    tag: "o hoje",
     title: "A maior infraestrutura de negócios.",
-    text: "Não estamos mais falando apenas de construir casas. Estamos falando de construir impérios. O Prátice Hub é o seu QG para escala, tecnologia e conexões exclusivas.",
+    text: "Eu não construí isso por mim.\nConstruí para que outros não precisem passar pelo que eu passei.\n\nO Prátice Hub não é um projeto.\nÉ o legado de quem decidiu abrir caminho para outros.",
+    accent: "",
+  },
+  {
+    year: "Os resultados",
+    tag: "Depois de sentar nas mesas certas",
+    title: "Me tornei a maior referência em INSS de obras no Brasil.",
+    text: "✔️ +R$ 10 milhões de INSS devolvidos\n✔️ +R$ 500 milhões em obras gerenciadas\n✔️ +4.000 unidades executadas\n✔️ +1.000 Alunos Engs e Arqs\n\nFundador do Prátice Hub — o ecossistema da construção civil.",
     accent: "",
   },
 ];
@@ -89,7 +96,7 @@ const ChapterSlide = ({
         {chapter.title}
       </h3>
 
-      <p className="text-muted-foreground text-base leading-relaxed mb-5 max-w-lg">
+      <p className="text-muted-foreground text-base leading-relaxed mb-5 max-w-lg whitespace-pre-line">
         {chapter.text}
       </p>
 
@@ -184,7 +191,7 @@ const StorytellingSection = () => {
         {/* Rodapé: dots de progresso + scroll hint (Desktop) */}
         <div className="relative z-10 py-4 px-8 flex items-center justify-center gap-4 flex-shrink-0">
           <div className="flex items-center gap-2">
-             {chapters.map((_, i) => (
+            {chapters.map((_, i) => (
               <div
                 key={i}
                 className="rounded-full transition-all duration-300"
@@ -267,7 +274,7 @@ const StorytellingSection = () => {
                 {ch.title}
               </h3>
 
-              <p className="text-muted-foreground text-base leading-relaxed mb-3">
+              <p className="text-muted-foreground text-base leading-relaxed mb-3 whitespace-pre-line">
                 {ch.text}
               </p>
 

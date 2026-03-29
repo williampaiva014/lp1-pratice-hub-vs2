@@ -76,87 +76,18 @@ const IPhoneMockup = ({ inView }: { inView: boolean }) => (
 
         {/* Tela do app */}
         <div
-          className="rounded-[28px] overflow-hidden"
+          className="rounded-[28px] overflow-hidden relative bg-black flex items-center justify-center"
           style={{
-            background: "linear-gradient(170deg, #0d0d12 0%, #121218 100%)",
             aspectRatio: "9/19.5",
           }}
         >
-          {/* Conteúdo placeholder do app */}
-          <div className="w-full h-full flex flex-col">
-            {/* Header do app */}
-            <div
-              className="px-4 pt-4 pb-3 flex items-center justify-between"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-            >
-              <div className="w-6 h-6 rounded-lg bg-primary/80 flex items-center justify-center">
-                <span className="text-[8px] font-bold text-background">P</span>
-              </div>
-              <span className="text-[9px] font-bold text-foreground tracking-wider uppercase">
-                Prátice Hub
-              </span>
-              <div className="w-5 h-5 rounded-full bg-white/10" />
-            </div>
-
-            {/* Conteúdo fake do app */}
-            <div className="flex-1 p-3 flex flex-col gap-2 overflow-hidden">
-              {/* Greeting */}
-              <p className="text-[8px] text-muted-foreground">Bem-vindo de volta 👋</p>
-              <p className="text-[11px] font-bold text-foreground">Seu hub de negócios</p>
-
-              {/* Cards de stats */}
-              <div className="grid grid-cols-2 gap-1.5 mt-1">
-                {[
-                  { label: "Conexões", val: "127" },
-                  { label: "Projetos", val: "8" },
-                  { label: "Indicações", val: "34" },
-                  { label: "Eventos", val: "3" },
-                ].map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-lg p-2"
-                    style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                    }}
-                  >
-                    <p className="text-primary text-[10px] font-bold">{s.val}</p>
-                    <p className="text-[7px] text-muted-foreground">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Feed de atividade */}
-              <p className="text-[8px] font-semibold text-foreground mt-2">Atividade recente</p>
-              {[
-                { icon: "🤝", msg: "Nova parceria · João MP" },
-                { icon: "📊", msg: "Trilha concluída · Monetização" },
-                { icon: "💬", msg: "3 mensagens novas" },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-2 py-1.5 px-2 rounded-lg"
-                  style={{ background: "rgba(255,255,255,0.03)" }}
-                >
-                  <span className="text-[10px]">{item.icon}</span>
-                  <span className="text-[7px] text-muted-foreground">{item.msg}</span>
-                </div>
-              ))}
-
-              {/* CTA interno */}
-              <div
-                className="mt-auto rounded-lg py-2 text-center"
-                style={{
-                  background:
-                    "linear-gradient(90deg, hsl(42,78%,45%) 0%, hsl(36,70%,35%) 100%)",
-                }}
-              >
-                <span className="text-[9px] font-bold text-background tracking-wider">
-                  VER OPORTUNIDADES
-                </span>
-              </div>
-            </div>
-          </div>
+          {/* YouTube Shorts Embed */}
+          <iframe
+            src="https://www.youtube.com/embed/U_e7z1PY-vQ?rel=0"
+            className="absolute inset-0 w-full h-full border-none pointer-events-auto"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </div>
     </motion.div>

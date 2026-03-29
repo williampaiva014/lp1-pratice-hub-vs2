@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 /* ─── Laptop 3D ──────────────────────────────────────────────────── */
@@ -8,7 +8,10 @@ const LaptopShell = ({
 }: {
   lidRotation: ReturnType<typeof useTransform>;
   screenOpacity: ReturnType<typeof useTransform>;
-}) => (
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
   <div
     className="relative w-full max-w-[680px] mx-auto select-none"
     style={{ perspective: "1400px" }}
@@ -18,9 +21,8 @@ const LaptopShell = ({
       style={{
         rotateX: lidRotation,
         transformOrigin: "bottom center",
-        transformStyle: "preserve-3d",
       }}
-      className="relative w-full"
+      className="relative w-full z-20"
     >
       {/* Moldura da tampa */}
       <div
@@ -37,43 +39,33 @@ const LaptopShell = ({
 
         {/* Tela */}
         <motion.div
-          className="absolute inset-[8px] rounded-xl overflow-hidden"
-          style={{ opacity: screenOpacity }}
+          className="absolute inset-[8px] rounded-xl overflow-hidden z-50 bg-black group"
+          style={{ opacity: screenOpacity, transform: "translateZ(1px)" }}
         >
-          {/* Fundo da tela */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d12] to-[#14141a] flex flex-col items-center justify-center gap-4">
-            {/* Play button */}
-            <div
-              className="w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-200"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(42,78%,55%) 0%, hsl(36,70%,40%) 100%)",
-                boxShadow: "0 0 50px rgba(200,150,40,0.5)",
+          {/* Vídeo do YouTube Embedded */}
+          <iframe
+            src={`https://www.youtube.com/embed/K2K5O5OC_S0?autoplay=${isPlaying ? 1 : 0}&rel=0`}
+            className="absolute inset-0 w-full h-full border-none pointer-events-auto"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+
+          {/* Overlay invisível para capturar o clique com 100% de precisão e driblar o bug do 3D */}
+          {!isPlaying && (
+            <div 
+              className="absolute inset-0 z-50 cursor-pointer flex items-center justify-center bg-transparent group-hover:bg-black/20 transition-colors pointer-events-auto"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsPlaying(true);
               }}
             >
-              <svg
-                className="w-6 h-6 sm:w-9 sm:h-9 text-background ml-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-[0_0_30px_rgba(200,150,40,0.6)] transform group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
             </div>
-            <p className="text-white/50 text-xs sm:text-sm tracking-widest uppercase font-medium">
-              Tour pela plataforma
-            </p>
-          </div>
-
-          {/*
-            ── VÍDEO REAL ──
-            Substitua o div acima por:
-            <iframe
-              src="https://www.youtube.com/embed/SEU_VIDEO_ID?autoplay=0&rel=0"
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          */}
+          )}
         </motion.div>
       </div>
     </motion.div>
@@ -96,7 +88,8 @@ const LaptopShell = ({
       style={{ background: "rgba(200,150,40,0.3)" }}
     />
   </div>
-);
+  );
+};
 
 /* ─── Seção principal ────────────────────────────────────────────── */
 const VideoSection = () => {

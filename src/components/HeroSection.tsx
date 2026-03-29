@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import pauloRobsonImg from "@/assets/paulo robson hd3.png";
 import logoImg from "@/assets/LOGOTIPO_P_1.png";
+import instaImg from "@/assets/insta-profile.png";
 
 const floatVariants = {
   animate: {
@@ -124,6 +125,30 @@ const HeroSection = () => {
             />
           </div>
         </motion.div>
+
+        {/* Badge Instagram – Desktop */}
+        <motion.div
+          variants={{
+            animate: {
+              y: [0, -8, 0],
+              transition: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            },
+          }}
+          animate="animate"
+          className="absolute bottom-24 right-[-5%] lg:right-[8%] z-30 pointer-events-auto"
+          style={{
+            filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.6))",
+          }}
+        >
+          <a
+            href="https://www.instagram.com/engpaulorobson/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:scale-105 transition-transform duration-300"
+          >
+            <img src={instaImg} alt="Instagram Paulo Robson" className="w-[180px] sm:w-[220px] 2xl:w-[260px] h-auto object-contain" />
+          </a>
+        </motion.div>
       </motion.div>
 
       {/* ── MAIN LAYOUT ── */}
@@ -141,7 +166,7 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-xs font-bold tracking-widest text-primary mb-6 uppercase"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              O Ecossistema da Construção Civil
+              O Ecossistema da Construção e Arquitetura
             </motion.div>
 
             {/* H1 */}
@@ -212,8 +237,32 @@ const HeroSection = () => {
                 }}
               >
                 <div className="glass rounded-xl p-2 border border-primary/20">
-                  <img src={logoImg} alt="Prátice Hub logo" className="w-20 h-auto" />
+                  <img src={logoImg} alt="Prátice Hub logo" className="w-16 sm:w-20 h-auto" />
                 </div>
+              </motion.div>
+
+              {/* Badge Instagram - Mobile */}
+              <motion.div
+                variants={{
+                  animate: {
+                    y: [0, -6, 0],
+                    transition: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+                  },
+                }}
+                animate="animate"
+                className="absolute bottom-4 left-2 z-30 pointer-events-auto"
+                style={{
+                  filter: "drop-shadow(0px 8px 16px rgba(0,0,0,0.7))",
+                }}
+              >
+                <a
+                  href="https://www.instagram.com/engpaulorobson/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:scale-105 transition-transform duration-300"
+                >
+                  <img src={instaImg} alt="Instagram Paulo Robson" className="w-[140px] h-auto object-contain" />
+                </a>
               </motion.div>
             </div>
           </div>

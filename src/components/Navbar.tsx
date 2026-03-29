@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, Star, BookOpen, BarChart3, LogIn, Instagram, Linkedin, Phone } from "lucide-react";
+import { Menu, X, Home, Star, BookOpen, BarChart3, LogIn, Instagram, Linkedin } from "lucide-react";
+import { WhatsAppIcon } from "./ui/WhatsAppIcon";
 import logoPrata from "@/assets/logo pratice3.png";
 
 const navItems = [
@@ -152,14 +153,14 @@ const Navbar = () => {
             {/* Mini Footer */}
             <div className="p-8 border-t border-white/5 bg-white/[0.02]">
               <div className="flex items-center justify-center gap-6 mb-6">
-                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
+                <a href="https://www.linkedin.com/in/paulo-robson-parente-linhares-8569a7b0/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
-                  <Phone size={20} />
+                <a href="https://www.instagram.com/engpaulorobson/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://wa.me/5585987244622?text=Ol%C3%A1%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Pr%C3%A1tice%20Hub" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-[#25D366] hover:border-[#25D366]/50 transition-all">
+                  <WhatsAppIcon size={20} className="mb-0.5 ml-0.5" />
                 </a>
               </div>
               <p className="text-center text-xs text-muted-foreground font-medium tracking-widest uppercase opacity-60">

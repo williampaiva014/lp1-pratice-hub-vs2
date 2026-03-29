@@ -33,7 +33,7 @@ const bars = [
   {
     label: "MCMV",
     sublabel: "Até 2026",
-    value: 2,
+    value: 6.5,
     max: 10,
     topLabel: "2M",
     color: "hsl(262,80%,65%)",
@@ -101,7 +101,7 @@ const Bar3D = ({
 
         {/* Corpo principal da barra */}
         <motion.div
-          className="relative rounded-t-sm overflow-hidden"
+          className="relative rounded-t-lg overflow-hidden shadow-lg"
           style={{ width: `${barW}px` }}
           initial={{ height: 0 }}
           animate={inView ? { height: barH } : { height: 0 }}
@@ -123,54 +123,19 @@ const Bar3D = ({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(255,255,255,0.18) 0%, transparent 45%)",
+                "linear-gradient(90deg, rgba(255,255,255,0.2) 0%, transparent 50%)",
             }}
           />
           {/* Reflexo superior */}
           <div
             className="absolute top-0 left-0 right-0"
             style={{
-              height: "30%",
+              height: "40%",
               background:
-                "linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 100%)",
+                "linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 100%)",
             }}
           />
         </motion.div>
-
-        {/* Face lateral direita – efeito 3D */}
-        <motion.div
-          className="absolute right-0 bottom-0"
-          style={{
-            width: `${sideW}px`,
-            transformOrigin: "left bottom",
-            transform: "skewY(-45deg)",
-            background: `linear-gradient(180deg, ${bar.colorDark} 0%, hsl(228,30%,8%) 100%)`,
-          }}
-          initial={{ height: 0 }}
-          animate={inView ? { height: barH } : { height: 0 }}
-          transition={{
-            duration: 1.1,
-            delay: 0.3 + index * 0.15,
-            ease: [0.34, 1.56, 0.64, 1],
-          }}
-        />
-
-        {/* Tampa superior – efeito 3D */}
-        <motion.div
-          className="absolute"
-          style={{
-            width: `${barW}px`,
-            height: `${sideW}px`,
-            transformOrigin: "bottom left",
-            transform: "skewX(-45deg)",
-            background: `linear-gradient(90deg, rgba(255,255,255,0.55) 0%, ${bar.color} 100%)`,
-            right: `-${sideW}px`,
-            bottom: `${barH}px`,
-          }}
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3, delay: 1.1 + index * 0.15 }}
-        />
       </div>
 
       {/* Label */}

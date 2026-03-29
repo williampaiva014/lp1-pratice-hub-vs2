@@ -10,6 +10,9 @@ import DifferentiationSection from "@/components/DifferentiationSection";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import MechanismSection from "@/components/MechanismSection";
+import CallToActionSection from "@/components/CallToActionSection";
 
 const Index = () => {
   return (
@@ -23,9 +26,12 @@ const Index = () => {
       <VideoSection />
       <TargetAudienceSection />
       <DifferentiationSection />
+      <MechanismSection />
+      <CallToActionSection />
       <Footer />
       <Navbar />
       <CookieConsent />
+      <FloatingWhatsApp />
     </div>
   );
 };
